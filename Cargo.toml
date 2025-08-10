@@ -2,13 +2,25 @@
 name = "proc-diag"
 version = "0.1.0"
 authors = ["Jacob Pratt <jacob@jhpratt.dev>"]
-edition = "2024"
-rust-version = "1.85.0"
+edition = "2021"
+rust-version = "1.78.0"
 repository = "https://github.com/jhpratt/proc-diag"
 keywords = ["proc", "macro", "diagnostic"]
 categories = ["development-tools::procedural-macro-helpers", "rust-patterns"]
+description = "Leverage compiler-provided functionality to emit custom error messages in procedural macros."
 readme = "README.md"
 license = "MIT OR Apache-2.0"
+include = ["src/**/*", "LICENSE-*", "README.md"]
+
+[package.metadata.docs.rs]
+all-features = true
+targets = ["x86_64-unknown-linux-gnu"]
+rustdoc-args = ["--generate-link-to-definition"]
 
 [dependencies]
 proc-macro2 = "1.0.95"
+quote = { version = "1.0.40", optional = true }
+
+[features]
+msrv-1-78 = []
+quote = ["dep:quote"]
