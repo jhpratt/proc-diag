@@ -1,6 +1,6 @@
 [package]
 name = "proc-diag"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Jacob Pratt <jacob@jhpratt.dev>"]
 edition = "2021"
 rust-version = "1.78.0"
@@ -18,9 +18,10 @@ targets = ["x86_64-unknown-linux-gnu"]
 rustdoc-args = ["--generate-link-to-definition"]
 
 [dependencies]
-proc-macro2 = "1.0.95"
+proc-macro2 = { version = "1.0.95", optional = true }
 quote = { version = "1.0.40", optional = true }
 
 [features]
 msrv-1-78 = []
-quote = ["dep:quote"]
+proc-macro2 = ["dep:proc-macro2"]
+quote = ["dep:quote", "proc-macro2"]

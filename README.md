@@ -33,8 +33,11 @@ L |     demo!("macro input");
 
 # Feature flags
 
-This crate has two feature flags:
+This crate has three feature flags:
 
-- `quote` enables an implementation of `quote::ToTokens`
+- `quote` enables an implementation of `quote::ToTokens`. This also enables the `proc-macro2`
+  feature.
+- `proc-macro2` enables passing `proc_macro2::Span` and `(proc_macro2::Span, proc_macro2::Span)` to
+  the `span` method.
 - `msrv-1-78`, which lowers the minimum supported Rust version from 1.85 to 1.78. The side
   effect of enabling this is an additional (irrelevant) line in the diagnostic output.
